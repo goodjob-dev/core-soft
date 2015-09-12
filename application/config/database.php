@@ -82,3 +82,6 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => FALSE
 );
+
+
+$lol = 'Hello';
