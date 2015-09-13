@@ -1,0 +1,1 @@
+var Template=function(){this.render=function(b,a){return $(this.compile(b,a))};this.compile=function(b,a){var c=$("#"+b+"-view").text();a=a||{};var e,f,d;for(d in a)e=a[d],f=new RegExp("\\{\\{"+d+"\\}\\}","g"),c=c.replace(f,e);return c.trim()}};
