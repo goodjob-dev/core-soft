@@ -505,10 +505,26 @@ $config['proxy_ips'] = '';
 
 $config['assets']    = 
 [
-	'js'  => array(
-		'script'
+	'admin'  => array(
+		'css' => array(
+			'admin.bootstrap',
+			'admin.style'
+		),
+		'js'  => array(
+			'jquery',
+			'bootstrap',
+			'admin.script'
+		)
 	),
-	'css' => array(
-		'style'
+	'public' => array(
+		'css' => array(
+			'bootstrap',
+			'style',
+		),
+		'js'  => array(
+			'jquery',
+			'bootstrap',
+			'script'
+		)
 	)
 ];
