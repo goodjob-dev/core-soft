@@ -8,7 +8,12 @@
 		
 		public function index()
 		{
-			$this->layout->render('layers/index', ['title' => 'Home']);
+			$sidebar = $this->load->view('inc/sidebar', array(
+				'categories' => TRUE,
+				'pricefilter' => TRUE,
+			), TRUE);
+
+			$this->layout->render('layers/index', ['title' => 'Home','sidebar' => $sidebar]);
 		}
 		
 		
