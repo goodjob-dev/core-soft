@@ -9,8 +9,24 @@ class AuthController extends CI_Controller
 	}	
 	
 	public function form()
+	{	
+		$this->layout->render(
+		
+			'forms/login', 
+			
+			array(
+				'title'  => 'Log in',
+				'oauth'  => $this->request->getCsrf('login'),
+				'errors' => ''
+			), 
+			
+			TRUE, FALSE
+		);
+	}
+	
+	public function action()
 	{
-		$this->layout->render('forms/login', ['title' => 'Log in'], TRUE);
+		$this->load->library('auth');
 	}
 }
 ?>

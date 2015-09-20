@@ -11,10 +11,16 @@
 				</div>
 
 				<div class="panel-body">
+				
+					<div class="row">
+							<div class="validation-errors col-lg-10 col-lg-offset-2">
+								<?php echo $errors;?>
+							</div>
+					</div>
 
 					<form action="" method="POST" class="form-horizontal">
 
-						<input type="hidden"   name="oauth"    value="" />
+						<input type="hidden"   name="oauth"    value="<?php echo $oauth;?>" />
 
 						<div class="form-group">
 							<label for="username" class="col-lg-2 control-label">Username</label>

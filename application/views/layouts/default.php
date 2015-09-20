@@ -12,9 +12,17 @@
 		?>
 		<title><?php echo $title; ?></title>
 	</head>
+	<?php 
+		echo $header;
+	?>
 	<body>
+		<div class="container">
+			<?php 
+				echo $content;
+			?>
+		</div>
 		<?php 
-			echo $content;
+			echo $footer;
 		?>
 	</body>
 </html>

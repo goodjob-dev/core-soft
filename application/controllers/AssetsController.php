@@ -7,10 +7,20 @@ class AssetsController extends CI_Controller
 	private $assets = '';
 
 	private $mime   = array(
-		'png'  => 'image/png',
-		'jpg'  => 'image/jpeg',
-		'jpeg' => 'image/jpeg',
-		'gif'  => 'image/gif'
+		'images' => array(
+			'png'  => 'image/png',
+			'jpg'  => 'image/jpeg',
+			'jpeg' => 'image/jpeg',
+			'gif'  => 'image/gif'
+		),
+		'fonts'  => array(
+			'eot'   => 'application/vnd.ms-fontobject',
+			'svg'   => 'application/vnd.oipf.dae.svg+xml',
+			'ttf'   => 'application/x-font-ttf',
+			'woff'  => 'application/font-woff',
+			'woff2' => 'application/font-woff2',
+			'otf'   => 'font/opentype'
+		)
 	);
 
 	public function __construct()
@@ -55,9 +65,23 @@ class AssetsController extends CI_Controller
 	{
 		preg_match('/[^\.]*$/', $file, $ext);
 
-		if( array_key_exists( $ext[0], $this->mime ) )
+		if( array_key_exists( $ext[0], $this->mime['images'] ) )
 		{
-			$this->send( $this->mime[ $ext[0] ], '/images/', $file );
+			$this->send( $this->mime['images'][ $ext[0] ], '/images/', $file );
+		}
+		else 
+		{
+			show_404();
+		}
+	}
+	
+	public function fonts( $file )
+	{
+		preg_match('/[^\.]*$/', $file, $ext);
+		
+		if( array_key_exists( $ext[0], $this->mime['fonts'] ) )
+		{
+			$this->send( $this->mime['fonts'][ $ext[0] ], '/fonts/', $file );
 		}
 		else 
 		{

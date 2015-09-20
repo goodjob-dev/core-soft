@@ -29,7 +29,7 @@ $config['base_url'] = 'http://core-soft/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -108,7 +108,7 @@ $config['enable_hooks'] = FALSE;
 | http://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = 'Gs_';
 
 /*
 |--------------------------------------------------------------------------
@@ -362,7 +362,7 @@ $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'gshop';
 $config['sess_expiration'] = 0;
 $config['sess_save_path'] = 'gs_sessions';
-$config['sess_match_ip'] = TRUE;
+$config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = TRUE;
 
@@ -505,7 +505,7 @@ $config['proxy_ips'] = '';
 
 
 $config['assets'] =
-[
+[	
 	'admin' => array(
 		'css' => array(
 			'admin.bootstrap',

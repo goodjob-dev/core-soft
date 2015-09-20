@@ -15,7 +15,7 @@ $route['translate_uri_dashes'] = FALSE;
  * Asset handler route
 */
 
-$route['(js|css|images)/(:any)'] = 'assetscontroller/$1/$2';
+$route['(js|css|images|fonts)/(:any)'] = 'assetscontroller/$1/$2';
 
 /**
  * Admin Login route
@@ -23,3 +23,10 @@ $route['(js|css|images)/(:any)'] = 'assetscontroller/$1/$2';
 
 $route['manage/login']['get']  = 'authcontroller/form';
 $route['manage/login']['post'] = 'authcontroller/action';
+
+/**
+ * Admin routes
+*/
+
+$route['manage']           = 'dashboardcontroller/index';
+$route['manage/dashboard'] = 'dashboardcontroller/index';

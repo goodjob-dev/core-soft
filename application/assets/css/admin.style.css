@@ -8,3 +8,7 @@ input, button, textarea
     display: flex;
     align-items: center;
 }
+.validation-errors
+{
+	color: #E44646;
+}
