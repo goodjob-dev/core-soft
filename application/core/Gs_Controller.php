@@ -13,7 +13,7 @@
 		
 		public function render( $view, $params )
 		{
-			$this->layout->render( $view, $params, TRUE);
+			$this->layout->render( 'admin-layouts' . $view, $params, TRUE);
 		}
 	}
 ?>
