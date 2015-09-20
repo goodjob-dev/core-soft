@@ -13,15 +13,15 @@
 		?>
 		<title><?php echo $title; ?></title>
 	</head>
-	<?php 
-		echo $header;
-	?>
+	
 	<body>
-		<div class="container">
+		<?php 
+			echo $header;
+		?>
+		
 			<?php 
 				echo $content;
 			?>
-		</div>
 		<?php 
 			echo $footer;
 		?>

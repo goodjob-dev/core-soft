@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"><img class="logo img-responsive" src="/images/logo.png" width="135"></a>
+			<a class="navbar-brand" href="/"><img class="logo img-responsive" src="/images/logo.png" width="135"></a>
 		</div>
 
 		<div class="search-form">

@@ -25,3 +25,9 @@ $route['manage/login']['post'] = 'authcontroller/action';
 $route['manage']           = 'dashboardcontroller/index';
 $route['manage/dashboard'] = 'dashboardcontroller/index';
 
+
+
+/**
+ * Public routes
+*/
+$route['contact'] = 'contactcontroller/index';
