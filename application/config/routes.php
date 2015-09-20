@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('');
 
 $route['default_controller'] = 'indexcontroller';
 
-$route['404_override'] = '';
+$route['404_override'] = 'indexcontroller';
 
 $route['translate_uri_dashes'] = FALSE;
 
