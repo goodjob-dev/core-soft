@@ -12,12 +12,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /**
- * Asset handler route
-*/
-
-$route['(js|css|images|fonts)/(:any)'] = 'assetscontroller/$1/$2';
-
-/**
  * Admin Login route
 */
 
