@@ -524,7 +524,8 @@ $config['assets'] =
 		),
 		'js'  => array(
 			'jquery',
-			'jquery-ui'
+			'jquery-ui',
+			'script'
 		)
 	)
 ]; 
