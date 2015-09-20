@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('');
  * Default route configuration
 */
 
-$route['default_controller'] = '';
+$route['default_controller'] = 'indexcontroller';
 
 $route['404_override'] = '';
 
@@ -30,3 +30,4 @@ $route['manage/login']['post'] = 'authcontroller/action';
 
 $route['manage']           = 'dashboardcontroller/index';
 $route['manage/dashboard'] = 'dashboardcontroller/index';
+
