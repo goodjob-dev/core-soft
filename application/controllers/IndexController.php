@@ -47,6 +47,11 @@
 				'gs_categories' => $categories 
 			), TRUE);
 
+			if( $product === FALSE )
+			{
+				$this->request->redirectTo(base_url());
+			}
+
 			$this->layout->render('layers/product', [
 				'title'		=> $product->title,
 				'sidebar'	=> $sidebar,

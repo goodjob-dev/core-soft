@@ -27,6 +27,16 @@
 
 		public function add($id) {
 
+			$this->load->model('Products');
+
+			$product = $this->Products->getProductById($id);
+			if($product === FALSE ) {
+				$this->request->redirectTo(base_url());
+			}
+
+			array_push($this->session->cart, 5);
+			//$this->request->pr($this->session->cart);
+
 		}
 		
 		

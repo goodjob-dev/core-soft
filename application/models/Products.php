@@ -1,12 +1,10 @@
 <?php 
 
-class Products extends CI_Model
+class Products extends Gs_Model
 {
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->load->database();
 	}
 
 	public function getAllProducts() {
@@ -57,9 +55,8 @@ class Products extends CI_Model
 						  ->from('gs_products')
 						  ->join('gs_product_info', 'gs_product_info.product_id = gs_products.id', 'left')
 						  ->where('gs_products.id', $id)
-						  ->get()
-						  ->result();
-		return $query[0];
+						  ->get();
+		return $this->one($query);
 	}
 }	
 
