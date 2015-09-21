@@ -8,12 +8,27 @@
 		
 		public function index()
 		{
+
+			$this->load->model('Category');
+			$categories = $this->Category->getAllCategories();
+
+
 			$sidebar = $this->load->view('inc/sidebar', array(
 				'categories' => TRUE,
 				'pricefilter' => TRUE,
+				'gs_categories' => $categories 
 			), TRUE);
 
-			$this->layout->render('layers/index', ['title' => 'Home','sidebar' => $sidebar]);
+			
+			$this->load->model('Products');
+			$products = $this->Products->getAllProducts();
+
+
+			$this->layout->render('layers/index', [
+				'title' => 'Home',
+				'sidebar' => $sidebar,
+				'products' => $products,
+			]);
 		}
 		
 		

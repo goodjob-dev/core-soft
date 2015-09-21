@@ -3,14 +3,10 @@
 		<div class="sidebar_item categories">
 			<h4>Categories</h4>
 			<ul>
-				<li><a href="#"><span>Headphones</span></a></li>
-				<li><a href="#"><span>Headphones</span></a></li>
-				<li><a href="#"><span>Headphones</span></a></li>
-				<li><a href="#"><span>Headphones</span></a></li>
-				<li><a href="#"><span>Headphones</span></a></li>
-				<li><a href="#"><span>Headphones</span></a></li>
-				<li><a href="#"><span>Headphones</span></a></li>
-				<li><a href="#"><span>Headphones</span></a></li>
+				<?php foreach($gs_categories as $key => $value): ?>
+					<li><a href="#"><span><?php echo $value->title; ?></span></a></li>
+				<?php endforeach; ?>
+				
 			</ul>
 		</div>
 	<?php endif; ?>
