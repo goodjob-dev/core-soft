@@ -32,3 +32,4 @@ $route['manage/dashboard'] = 'dashboardcontroller/index';
 */
 $route['contact'] = 'contactcontroller/index';
 $route['category/([a-z]+)'] = 'categorycontroller/index/$1';
+$route['product/([0-9]+)'] = 'indexcontroller/product/$1';

@@ -41,7 +41,7 @@
 								<h4 class="footer-info-title">Customer Service</h4>
 								<ul class="footer-ul">
 									<li class="item">
-										<a href="#">Contact Us</a>
+										<a href="/contact">Contact Us</a>
 									</li>
 									<li class="item">
 										<a href="#">Returns</a>
