@@ -1,5 +1,5 @@
 <?php 
-	class DashboardController extends Gs_Controller
+	class MnDashboardController extends Gs_Controller
 	{
 		public function __construct()
 		{
@@ -8,7 +8,7 @@
 		
 		public function index()
 		{
-			$this->render('layers/dashboard', null);
+			$this->render('dashboard', ['title' => 'Dashboard']);
 		}
 		
 		

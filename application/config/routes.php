@@ -15,21 +15,21 @@ $route['translate_uri_dashes'] = FALSE;
  * Admin Login route
 */
 
-$route['manage/login']['get']  = 'authcontroller/form';
-$route['manage/login']['post'] = 'authcontroller/action';
+$route['manage/login']['get']  = 'mnauthcontroller/form';
+$route['manage/login']['post'] = 'mnauthcontroller/action';
 
 /**
  * Admin routes
 */
 
-$route['manage']           = 'dashboardcontroller/index';
-$route['manage/dashboard'] = 'dashboardcontroller/index';
+$route['manage']           = 'mndashboardcontroller/index';
+$route['manage/dashboard'] = 'mndashboardcontroller/index';
 
 
 
 /**
  * Public routes
 */
-$route['contact'] = 'contactcontroller/index';
+$route['contact']           = 'contactcontroller/index';
 $route['category/([a-z]+)'] = 'categorycontroller/index/$1';
-$route['product/([0-9]+)'] = 'indexcontroller/product/$1';
+$route['product/([0-9]+)']  = 'indexcontroller/product/$1';
