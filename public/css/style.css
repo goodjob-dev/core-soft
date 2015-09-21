@@ -73,7 +73,9 @@ ul li {
 	border-color: #394264;
 }
 
-
+.error {
+	color: #e64c65;
+}
 
 
 /* body */
