@@ -307,9 +307,18 @@ header {
 	border: 1px solid #ebebeb;
 	background-color: #ffffff;
 	margin: 15px 32px 15px 32px;
+	min-height: 330px;
 }
 .product:hover {
 	border-color: #e64c65;
+}
+
+.product .top-block {
+	min-height: 195px;
+}
+
+.product .top-block img {
+	margin: 0 auto;
 }
 
 .product-info {
@@ -327,6 +336,12 @@ header {
 	font-size: 12px;
 	font-family: "Open Sans", sans-serif;
 	text-transform: uppercase;
+
+	overflow: hidden;
+    text-overflow: ellipsis;
+    width: 130px;
+    display: block;
+    white-space: nowrap;
 }.product-info h5 a:hover {
 	text-decoration: none;
 	color: #e64c65
