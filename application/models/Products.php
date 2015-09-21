@@ -18,6 +18,16 @@ class Products extends CI_Model
 
 		return $query;
 	}
+
+	public function getAllProductsById($id) {
+		$query = $this->db->select('*')
+						  ->from('gs_products')
+						  ->order_by('id DESC')
+						  ->where('category_id', $id)
+						  ->get()
+						  ->result();
+		return $query;
+	}
 }	
 
 ?>

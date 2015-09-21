@@ -31,3 +31,4 @@ $route['manage/dashboard'] = 'dashboardcontroller/index';
  * Public routes
 */
 $route['contact'] = 'contactcontroller/index';
+$route['category/([a-z]+)'] = 'categorycontroller/index/$1';

@@ -4,7 +4,7 @@
 			<h4>Categories</h4>
 			<ul>
 				<?php foreach($gs_categories as $key => $value): ?>
-					<li><a href="#"><span><?php echo $value->title; ?></span></a></li>
+					<li><a href="/category/<?php echo $value->alias; ?>"><span><?php echo $value->title; ?></span></a></li>
 				<?php endforeach; ?>
 				
 			</ul>
