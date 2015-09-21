@@ -1,4 +1,6 @@
 $(function() {
+
+
 	$( "#slider-range" ).slider({
 		range: true,
 		min: 0,
@@ -9,4 +11,22 @@ $(function() {
 		}
 	});
 	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+	/* add to cart */
+	$('.addtocart-btn').click(function(e){
+		e.preventDefault();
+
+		id = $(this).data('id');
+
+		$.ajax({
+			url: "/cart/add/" + id,
+			type: "POST",
+			success: function (data) {
+				
+			}
+		});
+
+	});
+
 });

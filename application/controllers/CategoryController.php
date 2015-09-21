@@ -28,7 +28,7 @@
 			), TRUE);
 
 			$this->layout->render('layers/index', [
-				'title' => 'Home',
+				'title' => 'Category - ' . ucfirst($alias),
 				'sidebar' => $sidebar,
 				'products' => $products,
 			]);

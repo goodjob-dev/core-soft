@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -21,7 +21,7 @@
 		<ul class="nav navbar-nav navbar-right">
 			
 			<li>
-				<a href="#">
+				<a href="/cart">
 					<span class="glyphicon glyphicon-shopping-cart shop-icon" aria-hidden="true"></span>
 					<span class="item-count">1</span>
 					<h4 class="shop-price">- $0.00</h4>

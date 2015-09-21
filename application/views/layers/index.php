@@ -126,7 +126,7 @@
 									<?php endif; ?>
 								</div>
 								<div class="product-addcart">
-									<a class="button btn addtocart-btn" href="#">
+									<a class="button btn addtocart-btn" href="#" data-id="<?php echo $value->id ?>">
 										<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 										<span>Add to cart</span>
 									</a>
