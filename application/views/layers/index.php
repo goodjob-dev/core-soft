@@ -110,13 +110,13 @@
 				<?php foreach($products as $key => $value): ?>
 					<div class="product col-lg-3 col-md-4 col-sm-10">
 						<div class="top-block">
-							<a href="#">
+							<a href="/product/<?php echo $value->id; ?>">
 								<img class="img-responsive" src="/uploads/products/thumbs/<?php echo 'product_' . $value->id . '.' . $value->extension; ?>">
 							</a>
 						</div>
 						<div class="bottom-block">
 							<div class="product-info">
-								<h5><a href="#"><?php echo $value->title; ?></a></h5>
+								<h5><a href="/product/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></h5>
 								<div class="product-price">
 									<?php if($value->sale_price == 0): ?>
 										<span class="price bold">$<?php echo $value->regular_price ?></span>

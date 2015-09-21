@@ -9,16 +9,25 @@
 		
 		public function index()
 		{
-			$this->load->model('Category');
-			$categories = $this->Category->getAllCategories();
-			
-			$sidebar = $this->load->view('inc/sidebar', array(
-				'categories' => TRUE,
-				'pricefilter' => FALSE,
-				'gs_categories' => $categories 
-			), TRUE);
+			if($this->input->post()) {
 
-			$this->layout->render('layers/contact', ['title' => 'Contact','sidebar' => $sidebar]);
+				
+
+			} else {
+
+				$this->load->model('Category');
+				$categories = $this->Category->getAllCategories();
+				
+				$sidebar = $this->load->view('inc/sidebar', array(
+					'categories' => TRUE,
+					'pricefilter' => FALSE,
+					'gs_categories' => $categories 
+				), TRUE);
+
+				$this->layout->render('layers/contact', ['title' => 'Contact','sidebar' => $sidebar]);
+
+			}
+			
 		}
 		
 		
