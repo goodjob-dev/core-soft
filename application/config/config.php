@@ -512,7 +512,8 @@ $config['assets'] =
 			'admin.style'
 		),
 		'js'  => array(
-
+			'jquery',
+			'bootstrap'
 		)
 	),
 
