@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14.1
+-- version 4.4.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2015 at 04:28 PM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Sep 21, 2015 at 11:39 AM
+-- Server version: 5.6.25
+-- PHP Version: 5.6.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -49,8 +49,21 @@ INSERT INTO `gs_admin_users` (`id`, `username`, `email`, `name`, `password`) VAL
 
 CREATE TABLE IF NOT EXISTS `gs_categories` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `title` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gs_categories`
+--
+
+INSERT INTO `gs_categories` (`id`, `title`, `alias`, `create_date`) VALUES
+(1, 'Apple', 'apple', '2015-09-21 06:42:07'),
+(2, 'Samsung', 'samsung', '2015-09-21 06:42:18'),
+(3, 'Sony', 'sony', '2015-09-21 06:42:18'),
+(4, 'Microsoft', 'microsoft', '2015-09-21 06:43:06'),
+(5, 'HTC', 'htc', '2015-09-21 06:43:06');
 
 -- --------------------------------------------------------
 
@@ -62,10 +75,21 @@ CREATE TABLE IF NOT EXISTS `gs_products` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `sale_price` int(11) NOT NULL,
+  `sale_price` int(11) DEFAULT NULL,
   `regular_price` int(11) NOT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `create_date` int(11) NOT NULL,
+  `extension` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gs_products`
+--
+
+INSERT INTO `gs_products` (`id`, `category_id`, `title`, `sale_price`, `regular_price`, `create_date`, `extension`) VALUES
+(1, 1, 'Iphone 6', 519, 549, 2147483647, 'jpg'),
+(2, 2, 'Samsung Galaxy S6', 520, 560, 2147483647, 'jpg'),
+(3, 5, 'Htc One', 0, 550, 2147483647, 'jpg'),
+(4, 2, 'Samsung Galaxy Note 4', 0, 570, 2147483647, 'jpg');
 
 -- --------------------------------------------------------
 
@@ -111,10 +135,7 @@ CREATE TABLE IF NOT EXISTS `gs_sessions` (
 --
 
 INSERT INTO `gs_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('04fea0b47fb5bc8dfe461075edaafeb3955b0b9a', '127.0.0.1', 1442742473, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323734323239383b637372662d6c6f67696e7c733a34303a2235306139346438323635343835316464656336306430343533366439393665383463323264656262223b6c6f67696e2d63726564656e7469616c737c613a323a7b733a323a226964223b733a313a2231223b733a343a226e616d65223b733a363a22417274687572223b7d),
-('6822d3f34105da817f19fbca8a7f98b23a355143', '127.0.0.1', 1442734825, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323733343634373b637372662d6c6f67696e7c733a34303a2237316236353536386663313433663935393931623332356634626161663064616265626630663736223b6c6f67696e2d63726564656e7469616c737c613a323a7b733a323a226964223b733a313a2231223b733a343a226e616d65223b733a363a22417274687572223b7d),
-('6de01707d2231b554dc16a05bbd378251af8546b', '127.0.0.1', 1442755591, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323735353438313b637372662d6c6f67696e7c733a34303a2262376336356366653864316336663161633731616362623632623236636466376436626131333436223b6c6f67696e2d63726564656e7469616c737c613a323a7b733a323a226964223b733a313a2231223b733a343a226e616d65223b733a363a22417274687572223b7d),
-('74dd431f820e7f2f1df23533301e6eacbb73d766', '127.0.0.1', 1442745414, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323734353338383b);
+('71b423d9310ce14a476b2c51dd46c0d3dc5c2a1d', '127.0.0.1', 1442828254, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323832383037323b637372662d6c6f67696e7c733a34303a2261656632373435303266656136353835323039333464643830663731303361363861613639626365223b);
 
 --
 -- Indexes for dumped tables
@@ -124,6 +145,12 @@ INSERT INTO `gs_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 -- Indexes for table `gs_admin_users`
 --
 ALTER TABLE `gs_admin_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gs_categories`
+--
+ALTER TABLE `gs_categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -161,10 +188,15 @@ ALTER TABLE `gs_sessions`
 ALTER TABLE `gs_admin_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `gs_categories`
+--
+ALTER TABLE `gs_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `gs_products`
 --
 ALTER TABLE `gs_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `gs_product_analytics`
 --
