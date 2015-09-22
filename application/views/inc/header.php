@@ -13,7 +13,7 @@
 		<div class="search-form">
 			<form class="navbar-form navbar-left" role="search" action="/search" method="get">
 				<div class="form-group">
-					<input type="text" name="q" class="form-control search-input" placeholder="Search">
+					<input type="text" name="q" class="form-control search-input" placeholder="Search" value="<?php echo $this->input->get('q'); ?>">
 				</div>
 			</form>
 		</div>

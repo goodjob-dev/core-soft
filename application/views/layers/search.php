@@ -99,10 +99,14 @@
 		?>
 
 		<div class="product-layout col-sm-9 col-md-9">
-		
-			<div class="products col-sm-12 col-md-12">
+			
+			<h1 class="search-h1">Search&nbsp;
+				<span class="heading-counter"><?=count($products);?> results have been found.</span>
+			</h1>
 
-				<?php if($products): ?>
+			<?php if($products): ?>
+				<div class="products col-sm-12 col-md-12">
+
 					<?php foreach($products as $key => $value): ?>
 						<div class="product col-lg-3 col-md-4 col-sm-10">
 							<div class="top-block">
@@ -130,19 +134,14 @@
 								</div>
 							</div>
 						</div>
-					<?php endforeach; ?>
-				<?php else: ?>
-					no ok
-				<?php endif; ?>
+					<?php endforeach; ?>		
 
-				
-
-				
-
-
-
-
-			</div>
+				</div>
+			<?php else: ?>
+				<p class="alert alert-warning">
+					Please enter a search keyword
+				</p>
+			<?php endif; ?>
 		</div>
 
 	</div>
