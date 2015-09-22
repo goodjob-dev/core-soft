@@ -102,34 +102,40 @@
 		
 			<div class="products col-sm-12 col-md-12">
 
-				<?php foreach($products as $key => $value): ?>
-					<div class="product col-lg-3 col-md-4 col-sm-10">
-						<div class="top-block">
-							<a href="/product/<?php echo $value->id; ?>">
-								<img class="img-responsive" src="/uploads/products/thumbs/<?php echo 'product_' . $value->id . '.' . $value->extension; ?>">
-							</a>
-						</div>
-						<div class="bottom-block">
-							<div class="product-info">
-								<h5><a href="/product/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></h5>
-								<div class="product-price">
-									<?php if($value->sale_price == 0): ?>
-										<span class="price bold">$<?php echo $value->regular_price ?></span>
-									<?php else: ?>
-										<span class="old-price">$<?php echo $value->regular_price ?></span>
-										<span class="price bold">$<?php echo $value->sale_price ?></span>
-									<?php endif; ?>
-								</div>
-								<div class="product-addcart">
-									<a class="button btn addtocart-btn" href="#" data-id="<?php echo $value->id ?>">
-										<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-										<span>Add to cart</span>
-									</a>
+				<?php if($products): ?>
+					<?php foreach($products as $key => $value): ?>
+						<div class="product col-lg-3 col-md-4 col-sm-10">
+							<div class="top-block">
+								<a href="/product/<?php echo $value->id; ?>">
+									<img class="img-responsive" src="/uploads/products/thumbs/<?php echo 'product_' . $value->id . '.' . $value->extension; ?>">
+								</a>
+							</div>
+							<div class="bottom-block">
+								<div class="product-info">
+									<h5><a href="/product/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></h5>
+									<div class="product-price">
+										<?php if($value->sale_price == 0): ?>
+											<span class="price bold">$<?php echo $value->regular_price ?></span>
+										<?php else: ?>
+											<span class="old-price">$<?php echo $value->regular_price ?></span>
+											<span class="price bold">$<?php echo $value->sale_price ?></span>
+										<?php endif; ?>
+									</div>
+									<div class="product-addcart">
+										<a class="button btn addtocart-btn" href="#" data-id="<?php echo $value->id ?>">
+											<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+											<span>Add to cart</span>
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<?php endforeach; ?>
+					<?php endforeach; ?>
+				<?php else: ?>
+					no ok
+				<?php endif; ?>
+
+				
 
 				
 

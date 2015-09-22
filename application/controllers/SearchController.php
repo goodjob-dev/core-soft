@@ -8,9 +8,7 @@
 		
 		public function index()
 		{
-			echo "ok";
-
-			$this->input->get($value);
+		
 			
 			
 		}
