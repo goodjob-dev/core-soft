@@ -35,7 +35,7 @@
 					{
 				?>
 					<li>
-						<a href="manage/<?php echo $page['route']?>">
+						<a href="/manage/<?php echo $page['route']?>">
 							<?php echo $page['title'];?>
 						</a>
 					</li>
