@@ -25,13 +25,13 @@ $route['manage/login']['post'] = 'mnauthcontroller/action';
 $route['manage']           = 'mndashboardcontroller/index';
 $route['manage/dashboard'] = 'mndashboardcontroller/index';
 
-
+$route['manage/products']  = 'mnproductcontroller/index';
 
 /**
  * Public routes
 */
-$route['cart']           = 'cartcontroller/index';
-$route['cart/add/([0-9]+)']           = 'cartcontroller/add/$1';
+$route['cart']              = 'cartcontroller/index';
+$route['cart/add/([0-9]+)'] = 'cartcontroller/add/$1';
 $route['contact']           = 'contactcontroller/index';
 $route['category/([a-z]+)'] = 'categorycontroller/index/$1';
 $route['product/([0-9]+)']  = 'indexcontroller/product/$1';

@@ -508,8 +508,8 @@ $config['assets'] =
 [	
 	'admin' => array(
 		'css' => array(
-			'admin.bootstrap',
-			'admin.style'
+			'admin/bootstrap',
+			'admin/style'
 		),
 		'js'  => array(
 			'jquery',
