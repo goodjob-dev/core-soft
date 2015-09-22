@@ -1,6 +1,7 @@
 <?php
 
-class Input extends CI_Input 
+
+class Gs_Input extends CI_Input 
 {
     function _sanitize_globals()
     {
@@ -8,3 +9,5 @@ class Input extends CI_Input
         parent::_sanitize_globals();
     }
 }
+
+?>

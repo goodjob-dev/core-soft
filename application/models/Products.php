@@ -58,6 +58,19 @@ class Products extends Gs_Model
 						  ->get();
 		return $this->one($query);
 	}
+
+	public function getSearchProducts($search_term=null){
+		if($search_term == null) {
+			return FALSE;
+		}
+
+		$query = $this->db->select('*')
+				 ->from('gs_products')
+				 ->like('title', $search_term)
+				 ->get();
+
+		return $query->result();
+	}
 }	
 
 ?>
