@@ -43,6 +43,13 @@
 					}
 				?>
 			</ul>
+			<ul class="navbar-nav nav navbar-right">
+				<li>
+					<a href="/manage/logout">
+						<i class="glyphicon glyphicon-log-out"></i>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </nav>

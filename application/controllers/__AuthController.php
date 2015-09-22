@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('');
 	
-class MnAuthController extends CI_Controller
+class __AuthController extends CI_Controller
 {
 	public function __construct()
 	{	
@@ -12,6 +12,11 @@ class MnAuthController extends CI_Controller
 			$this->request->redirectTo('manage/');
 		}
 	}	
+	
+	private function check()
+	{
+		
+	}
 	
 	public function form()
 	{	
@@ -32,6 +37,13 @@ class MnAuthController extends CI_Controller
 	public function action()
 	{
 		$this->load->library('auth');
+	}
+	
+	public function logout()
+	{
+		$credentials = $this->session->userdata('login-credentials');
+		
+		$this->request->pr($credentials);
 	}
 }
 ?>
