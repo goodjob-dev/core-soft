@@ -11,7 +11,7 @@
 
 			$this->session->set_userdata(array(
 				'cart' => array(
-
+					'items' => 'arthur'
 				)
 			));
 
@@ -34,7 +34,7 @@
 				$this->request->redirectTo(base_url());
 			}
 
-			array_push($this->session->cart, 5);
+			//array_push(, 5);
 			//$this->request->pr($this->session->cart);
 
 		}

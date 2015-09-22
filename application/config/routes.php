@@ -35,3 +35,4 @@ $route['cart/add/([0-9]+)']           = 'cartcontroller/add/$1';
 $route['contact']           = 'contactcontroller/index';
 $route['category/([a-z]+)'] = 'categorycontroller/index/$1';
 $route['product/([0-9]+)']  = 'indexcontroller/product/$1';
+$route['search']           = 'searchcontroller/index';
