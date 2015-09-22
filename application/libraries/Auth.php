@@ -147,7 +147,7 @@ class Auth
 			array(
 				'errors' => $errors, 
 				'oauth'  => $this->CI->request->getCsrf('login'),
-				'title'  => 'Login in'
+				'title'  => 'Log in'
 			),
 			
 			TRUE, FALSE
