@@ -142,7 +142,7 @@ class Auth
 	{
 		$this->CI->layout->render( 
 
-			'forms/login', 
+			'form/login', 
 			
 			array(
 				'errors' => $errors, 

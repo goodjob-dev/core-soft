@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('');
 	
-class __AuthController extends CI_Controller
+class _AuthController extends CI_Controller
 {
 	public function __construct()
 	{	
@@ -13,16 +13,11 @@ class __AuthController extends CI_Controller
 		}
 	}	
 	
-	private function check()
-	{
-		
-	}
-	
 	public function form()
 	{	
 		$this->layout->render(
 		
-			'forms/login', 
+			'form/login', 
 			
 			array(
 				'title'  => 'Log in',

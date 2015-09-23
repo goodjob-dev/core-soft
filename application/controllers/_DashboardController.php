@@ -1,5 +1,5 @@
 <?php 
-	class MnDashboardController extends Gs_Controller
+	class _DashboardController extends Gs_Controller
 	{
 		public function __construct()
 		{
@@ -12,16 +12,12 @@
 		}
 		
 		public function logout()
-		{	
-			$route = '/';
-		
+		{		
 			if( null !== $this->session->userdata('login-credentials') )
-			{
-				$route = '/manage/login';
-				
+			{	
 				$this->session->unset_userdata('login-credentials');
 			}
-			$this->request->redirectTo($route);
+			$this->request->redirectTo('/manage/login');
 		}
 	}
 ?>

@@ -28,7 +28,7 @@
 				'gs_categories' => $categories 
 			), TRUE);
 
-			$this->layout->render('layers/search', [
+			$this->layout->render('layer/search', [
 				'title' => 'Search',
 				'sidebar' => $sidebar,
 				'products' => $products

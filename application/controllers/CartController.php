@@ -20,7 +20,7 @@
 			//$this->request->pr($cart);
 			
 
-			$this->layout->render('layers/cart', [
+			$this->layout->render('layer/cart', [
 				'title' => 'Cart',
 			]);
 		}

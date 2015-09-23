@@ -23,7 +23,7 @@
 				'gs_categories' => $categories 
 			), TRUE);
 
-			$this->layout->render('layers/index', [
+			$this->layout->render('layer/index', [
 				'title' => 'Home',
 				'sidebar' => $sidebar,
 				'products' => $products,
@@ -52,7 +52,7 @@
 				$this->request->redirectTo(base_url());
 			}
 
-			$this->layout->render('layers/product', [
+			$this->layout->render('layer/product', [
 				'title'		=> $product->title,
 				'sidebar'	=> $sidebar,
 				'product'	=> $product,

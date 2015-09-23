@@ -27,7 +27,7 @@
 				'gs_categories' => $categories 
 			), TRUE);
 
-			$this->layout->render('layers/index', [
+			$this->layout->render('layer/index', [
 				'title' => 'Category - ' . ucfirst($alias),
 				'sidebar' => $sidebar,
 				'products' => $products,

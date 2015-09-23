@@ -43,7 +43,7 @@
 						'gs_categories' => $categories 
 					), TRUE);
 
-					$this->layout->render('forms/contact', ['title' => 'Contact Us','sidebar' => $sidebar]);
+					$this->layout->render('form/contact', ['title' => 'Contact Us','sidebar' => $sidebar]);
 				}
 				else
 				{

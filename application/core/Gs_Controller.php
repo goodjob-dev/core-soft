@@ -11,9 +11,9 @@
 			}
 		}
 		
-		public function render( $view, $params )
+		public function render( $view, $params, $type = 'layer' )
 		{
-			$this->layout->render( 'layers/admin-layouts/' . $view, $params, TRUE);
+			$this->layout->render( $type . '/admin-'. $type .'/' . $view, $params, TRUE);
 		}
 	}
 ?>
