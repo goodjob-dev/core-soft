@@ -19,7 +19,7 @@
 ?>
 
 <nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
+	<div class="container nav-content">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#admin-navigation">
 				<span class="sr-only">Toggle navigation</span>
@@ -29,7 +29,7 @@
 			</button>
 		</div>
 		<div class="collapse navbar-collapse" id="admin-navigation">
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-left navbar-nav">
 				<?php 
 					foreach( $_adminPages as $page )
 					{

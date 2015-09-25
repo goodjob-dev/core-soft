@@ -1,21 +1,21 @@
 <?php 
 
 class Products extends Gs_Model
-{
+{	
 	public function __construct()
 	{
 		parent::__construct();
 	}
 
 	public function getAllProducts() 
-	{
-		return  $this->db->select('*')
-						 ->from('gs_products')
-						 ->order_by('id DESC')
-						 ->get()
-						 ->result();
+	{	
+		$this->db->select  ('*')
+			     ->from    ('gs_products')
+				 ->order_by('id DESC');
+	
+		return $this->get( $this->db->get() );
 	}
-
+	
 	public function getAllTabProducts() 
 	{
 		return  $this->db->select('*')
@@ -46,13 +46,14 @@ class Products extends Gs_Model
 						 ->result();
 	}
 
-	public function getProductById($id) 
+	public function getProductById( $id ) 
 	{
 		$query = $this->db->select('*')
 						  ->from('gs_products')
 						  ->join('gs_product_info', 'gs_product_info.product_id = gs_products.id', 'left')
 						  ->where('gs_products.id', $id)
 						  ->get();
+						  
 		return $this->one($query);
 	}
 

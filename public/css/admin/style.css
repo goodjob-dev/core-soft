@@ -16,3 +16,29 @@ input, button, textarea
 {
 	color: #E44646;
 }
+.nav-content 
+{
+	padding: 0;
+}
+.navbar-left li:first-child a, .none-padding
+{
+	padding-left: 0;
+}
+.product-image img 
+{
+	width: 98px;
+}
+.page-title 
+{
+	margin-bottom: 30px;
+}
+.delete-link 
+{
+	color: #E87C7C;
+}
+.add-button
+{
+	float: right;
+	position: relative;
+	top: 21px;
+}

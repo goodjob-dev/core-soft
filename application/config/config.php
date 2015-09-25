@@ -513,7 +513,8 @@ $config['assets'] =
 		),
 		'js'  => array(
 			'jquery',
-			'bootstrap'
+			'bootstrap',
+			'admin/script'
 		)
 	),
 

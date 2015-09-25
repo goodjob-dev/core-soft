@@ -1,7 +1,10 @@
 <?php
 	class _ProductController extends Gs_Controller
 	{
-		private $product_limit = 5;
+		/**
+		 * Product limit for each page
+		*/
+		private $pr_l = 2;
 		
 		public function __construct()
 		{
@@ -9,12 +12,24 @@
 		}
 		
 		public function index()
-		{	
-			$this->load->model( 'products' );
+		{
+			$p = $this->input->get('p');
+			$l = $this->pr_l;
+			$o = 0;
 			
-			$this->products->getAll();
+			if( null !== $p )
+			{
+				$l = $this->pr_l;
+				$o = $l * $p;
+			}
+			
+			$this->load->model( 'manage/_products' );
 		
-			$this->render('products', []);
+			$this->render('products', 
+			[
+				'title'    => 'Products',
+				'products' => $this->_products->getAll( $l, $o )
+			]);
 		}
 	}
 ?>

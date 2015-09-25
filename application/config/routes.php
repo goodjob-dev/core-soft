@@ -19,17 +19,32 @@ $route['manage/login']['get']  = '_AuthController/form';
 $route['manage/login']['post'] = '_AuthController/action';
 
 /**
- * Admin routes
+ * Admin dashboard routes
 */
 
 $route['manage']           = '_DashboardController/index';
 $route['manage/dashboard'] = '_DashboardController/index';
 
+
+/**
+ * logout admin user
+*/
 $route['manage/logout']    = '_DashboardController/logout';
 
-$route['manage/products']  = '_ProductController/index';
 
+/**
+ * product routes
+*/
+
+$route['manage/products']     = '_ProductController/index';
+$route['manage/products/add'] = '_ProductController/add';
+
+/**
+ * User routes
+*/
 $route['manage/users']     = '_UsersController/index';
+
+
 
 
 /**
