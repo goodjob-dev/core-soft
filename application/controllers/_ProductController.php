@@ -31,5 +31,13 @@
 				'products' => $this->_products->getAll( $l, $o )
 			]);
 		}
+
+		public function add()
+		{
+			$this->render('add-product', 
+			[
+				'title'    => 'Add product',
+			], 'form');
+		}
 	}
 ?>

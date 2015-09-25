@@ -65,12 +65,14 @@ class Products extends Gs_Model
 		}
 
 		$query = $this->db->select('*')
-				          ->from('gs_products')
-				          ->like('title', $search_term)
-				          ->get();
+						  ->from('gs_products')
+						  ->like('title', $search_term)
+						  ->get();
 
 		return $query->result();
 	}
+
+	
 }	
 
 ?>
