@@ -427,7 +427,6 @@ header {
 }.sidebar .categories li a:hover {
 	color: #ffffff;
 	background: #50597b;
-	font-weight: bold;
 }
 
 .sidebar .categories li {

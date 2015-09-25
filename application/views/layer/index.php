@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 	<div class="row">
 		<div class="product col-lg-2">
 			<div class="top-block">
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>-->
 
 <div class="container main-content">
 	<div class="row">
