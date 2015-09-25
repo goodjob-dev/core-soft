@@ -1,12 +1,12 @@
 <div class="container">
-	<div class="row">
-		<h1 class="none-padding page-title col-xs-3"><?php echo $title;?></h1>
+	<div class="row top-content">
+		<h1 class="page-title col-xs-3"><?php echo $title;?></h1>
 		<a href="/manage/products/add" class="add-button btn btn-success">
 			Add product
 		</a>
 	</div>
 	<div class="row">
-		<div class="table-responsive">
+		<div class="table-responsive container">
 			<table class="table table-striped table-bordered">
 				<thead>
 					<th>#</th>

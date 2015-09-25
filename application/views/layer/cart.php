@@ -54,39 +54,7 @@
 								<span class="price" >$61.00</span>
 							</td>
 						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href="#"><img src="uploads/products/p2.jpg" width="98" height="98"></a>
-							</td>
-
-							<td class="cart_description">
-								<p class="product-name"><a href="#">Product title</a></p>
-							</td>
-
-							<td class="cart_unit">
-								<ul class="price text-right">
-									<li class="price">$21.00</li>
-									<li class="old-price">$26.00</li>
-								</ul>
-							</td>
-
-							<td class="cart_quantity text-center">
-								<div class="pb-qty cart-qty">
-									<input type="text" name="qty" class="qty" value="1"><br><br>
-									<span class="btn btn-sm"><i class="glyphicon glyphicon-minus"></i></span>
-									<span class="btn btn-sm"><i class="glyphicon glyphicon-plus"></i></span>
-									<div class="clear"></div>
-								</div>
-							</td>
-
-							<td class="cart_delete text-center">
-								<a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
-
-							<td class="cart_total text-right">
-								<span class="price" >$61.00</span>
-							</td>
-						</tr>
+						
 					</tbody>
 
 					<tfoot>
