@@ -19,5 +19,10 @@
 			
 			return $this->get( $this->db->get() );
 		}
+
+		public function insertProduct($data)
+		{
+			$this->db->insert('gs_products', $data);
+		}
 	}
 ?>

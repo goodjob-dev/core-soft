@@ -34,10 +34,38 @@
 
 		public function add()
 		{
-			$this->render('add-product', 
-			[
-				'title'    => 'Add product',
-			], 'form');
+			if($this->input->post())
+			{
+				
+
+				$post = $this->input->post();
+
+
+			
+				$ext = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
+
+				$data = array(
+					'title'			=> $post['title'],
+					'regular_price'	=> $post['regular_price'],
+					'sale_price'	=> $post['sale_price'],
+					'create_date'	=> time(),
+					'extension'		=> $ext
+				);
+
+				$this->request->pr($data);
+
+				//$this->load->model( 'manage/_products' );
+				//$this->_products->insertProduct($data);
+			}
+			else
+			{
+				$this->load->model( 'Category' );
+				$this->render('add-product', 
+				[
+					'title'    => 'Add product',
+				], 'form');
+			}
+			
 		}
 	}
 ?>
