@@ -73,10 +73,10 @@
 			{
 				if($this->input->post('add_product'))
 				{	
-					// post
+					/* post */
 					$post = $this->input->post();
 
-					// upload config
+					/* upload config */
 					$extension = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
 
 					$uploadConfig['upload_path']		= './uploads/products';
@@ -85,6 +85,7 @@
 
 					$this->load->library('upload', $uploadConfig);
 					if($this->upload->do_upload('product_image')) {
+						/* image config */
 						$imageConfig['image_library']	= 'gd2';
 						$imageConfig['source_image']	= './uploads/products/' . $uploadConfig['file_name'];
 						$imageConfig['new_image']		= './uploads/products/thumbs/';
@@ -100,26 +101,80 @@
 					}
 
 
-					// image
-					
-
-
-					// mysql
+					/* mysql */
 					$sql1 = "INSERT INTO gs_products (`category_id`, `title`, `regular_price`, `sale_price`, `create_date`, `image`) VALUES (?, ?, ?, ?, ?, ?)";
 					$sql2 = "INSERT INTO gs_product_info (`product_id`, `description`) VALUES (LAST_INSERT_ID(), ?)";
 					$sql3 = "INSERT INTO gs_product_analytics (`product_id`) VALUES (LAST_INSERT_ID())";
 
 					$this->db->trans_start();
-						$this->db->query($sql1, array($post['category'],$post['title'], $post['regular_price'], $post['sale_price'], time(), $uploadConfig['file_name']) );
+						$this->db->query($sql1, array($post['category'], $post['title'], $post['regular_price'], $post['sale_price'], time(), $uploadConfig['file_name']));
 						$this->db->query($sql2, array($post['description']));
 						$this->db->query($sql3);
 					$this->db->trans_complete();
 
 				}
+
+				$this->request->redirectTo(base_url() . "manage/products");
 				
 			}
-
 			
 		}
+
+
+		public function edit($id)
+		{
+			$config = array(
+				array(
+					'field'	=> 'title', 
+					'label'	=> 'Title', 
+					'rules'	=> 'required'
+				),
+				array(
+					'field'		=> 'category', 
+					'label'		=> 'Category *', 
+					'rules'		=> 'required'
+				),
+				array(
+					'field'		=> 'regular_price', 
+					'label'		=> 'Regular Price *', 
+					'rules'		=> 'required'
+				)
+			);
+
+			$this->form_validation->set_rules($config);
+
+			if ($this->form_validation->run() == FALSE)
+			{
+				$this->load->model( 'Category' );
+				$this->load->model( 'manage/_products' );
+
+
+				$categories = $this->Category->getAllCategories();
+				$product = $this->_products->getProductByID($id);
+
+
+				$this->render('edit-product', 
+				[
+					'title'			=> 'Edit product',
+					'categories'	=> $categories,
+					'product'		=> $product
+				], 'form');
+			}
+			else
+			{
+				if($this->input->post('edit_product'))
+				{
+					$post = $this->input->post();
+					$this->request->pr($post);
+
+				}
+			}
+		}
+
 	}
+
+
+
+
+
 ?>

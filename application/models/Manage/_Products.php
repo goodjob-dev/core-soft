@@ -20,9 +20,14 @@
 			return $this->get( $this->db->get() );
 		}
 
-		public function insertProduct($data)
-		{
-			$this->db->insert('gs_products', $data);
+		public function getProductByID($id) {
+			$query = $this->db->select('gs_products.*, gs_product_info.description')
+							  ->from('gs_products')
+							  ->join('gs_product_info', 'gs_product_info.product_id = gs_products.id', 'left')
+							  ->where('gs_products.id', $id)
+							  ->get();
+
+			return $this->one($query);
 		}
 	}
 ?>
