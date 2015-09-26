@@ -11,8 +11,8 @@
 			'route' => 'products'
 		],
 		[
-			'title' => 'Users',
-			'route' => 'users'
+			'title' => 'Categories',
+			'route' => 'categories'
 		]
 	];
 

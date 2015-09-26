@@ -24,8 +24,12 @@
 					</div>
 					<div class="pb-qty">
 						<input type="text" name="qty" class="qty" value="1">
-						<span class="btn btn-sm"><i class="glyphicon glyphicon-minus"></i></span>
-						<span class="btn btn-sm"><i class="glyphicon glyphicon-plus"></i></span>
+						<span class="decr btn btn-sm">
+							<i class="glyphicon glyphicon-minus"></i>
+						</span>
+						<span class="incr btn btn-sm">
+							<i class="glyphicon glyphicon-plus"></i>
+						</span>
 						<div class="clear"></div>
 					</div>
 					<div class="pb-addcart">

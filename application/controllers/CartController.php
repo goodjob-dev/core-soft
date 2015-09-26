@@ -6,39 +6,31 @@
 			parent::__construct();
 		}
 		
+		
 		public function index()
-		{
-
-			$this->session->set_userdata(array(
-				'cart' => array(
-					'items' => 'arthur'
-				)
-			));
-
-			$cart = $this->session->cart;
-
-			//$this->request->pr($cart);
+		{	
 			
-
+		
 			$this->layout->render('layer/cart', [
-				'title' => 'Cart',
+				'title'    => 'Cart',
+				'products' => ''
 			]);
 		}
-
-		public function add($id) {
-
-			$this->load->model('Products');
-
-			$product = $this->Products->getProductById($id);
-			if($product === FALSE ) {
-				$this->request->redirectTo(base_url());
-			}
-
-			//array_push(, 5);
-			//$this->request->pr($this->session->cart);
-
+		
+		
+		public function add()
+		{
+			
 		}
 		
+		public function delete()
+		{
+			
+		}
 		
+		public function update()
+		{
+			
+		}
 	}
 ?>
