@@ -54,3 +54,7 @@ input, button, textarea
 {
 	padding-right: 0px;
 }
+
+.error {
+	color: #e64c65;
+}

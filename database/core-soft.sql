@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2015 at 11:39 AM
+-- Generation Time: Sep 26, 2015 at 11:11 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -68,6 +68,21 @@ INSERT INTO `gs_categories` (`id`, `title`, `alias`, `create_date`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gs_contacts`
+--
+
+CREATE TABLE IF NOT EXISTS `gs_contacts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `url` text,
+  `message_text` text NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gs_products`
 --
 
@@ -75,21 +90,11 @@ CREATE TABLE IF NOT EXISTS `gs_products` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `sale_price` int(11) DEFAULT NULL,
+  `sale_price` int(11) DEFAULT '0',
   `regular_price` int(11) NOT NULL,
   `create_date` int(11) NOT NULL,
-  `extension` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `gs_products`
---
-
-INSERT INTO `gs_products` (`id`, `category_id`, `title`, `sale_price`, `regular_price`, `create_date`, `extension`) VALUES
-(1, 1, 'Iphone 6', 519, 549, 2147483647, 'jpg'),
-(2, 2, 'Samsung Galaxy S6', 520, 560, 2147483647, 'jpg'),
-(3, 5, 'Htc One', 0, 550, 2147483647, 'jpg'),
-(4, 2, 'Samsung Galaxy Note 4', 0, 570, 2147483647, 'jpg');
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -114,8 +119,20 @@ CREATE TABLE IF NOT EXISTS `gs_product_info` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `description` text NOT NULL,
-  `availability` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `availability` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gs_product_info`
+--
+
+INSERT INTO `gs_product_info` (`id`, `product_id`, `description`, `availability`) VALUES
+(1, 1, 'Iphone 6 description', 1),
+(2, 2, 'Samsung Galaxy S6 description', 1),
+(3, 3, 'Htc One description', 1),
+(4, 4, 'Samsung Galaxy Note 4 description', 1),
+(5, 11, 'description', 1),
+(6, 12, 'dfdtg', 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +152,12 @@ CREATE TABLE IF NOT EXISTS `gs_sessions` (
 --
 
 INSERT INTO `gs_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('71b423d9310ce14a476b2c51dd46c0d3dc5c2a1d', '127.0.0.1', 1442828254, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323832383037323b637372662d6c6f67696e7c733a34303a2261656632373435303266656136353835323039333464643830663731303361363861613639626365223b);
+('33fd3e19bb909f0c4de7ae52b92a5bd922b31d84', '127.0.0.1', 1443197084, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434333139373038343b637372662d6c6f67696e7c733a34303a2231383330303561323766346162306136376438663038373136303936356339656431393866376162223b6c6f67696e2d63726564656e7469616c737c613a323a7b733a323a226964223b733a313a2231223b733a343a226e616d65223b733a363a22417274687572223b7d),
+('4ec70dadbdd0c01e640a0a236ef20062bf87704b', '127.0.0.1', 1442844408, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323834343336303b636172747c613a303a7b7d),
+('bbe855fd72a9456a1afe7a64625ffd967b5f41d3', '127.0.0.1', 1442843115, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323834333131353b637372662d6c6f67696e7c733a34303a2231333231666637396537326136663730663832326232323336656330633937623364616461613362223b636172747c613a303a7b7d),
+('bced16ccd77f2e3f580a583f8e603ce34a8c14a8', '127.0.0.1', 1443251060, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434333235303835303b637372662d6c6f67696e7c733a34303a2236626436333862636439383461333164336461663166663264623530383038633837653563313539223b6c6f67696e2d63726564656e7469616c737c613a323a7b733a323a226964223b733a313a2231223b733a343a226e616d65223b733a363a22417274687572223b7d),
+('e5b7d6d05455ce8133e48e4f832dee5721bac002', '127.0.0.1', 1442941193, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434323934313030333b636172747c613a313a7b733a353a226974656d73223b733a363a22617274687572223b7d),
+('e6881568f6b6340fd57732a66efa23d154a8665f', '127.0.0.1', 1443258494, 0x5f5f63695f6c6173745f726567656e65726174657c693a313434333235383437383b637372662d6c6f67696e7c733a34303a2264343636376330323833363964373831663232663363323232616337333466383966393334616233223b6c6f67696e2d63726564656e7469616c737c613a323a7b733a323a226964223b733a313a2231223b733a343a226e616d65223b733a363a22417274687572223b7d);
 
 --
 -- Indexes for dumped tables
@@ -151,6 +173,12 @@ ALTER TABLE `gs_admin_users`
 -- Indexes for table `gs_categories`
 --
 ALTER TABLE `gs_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gs_contacts`
+--
+ALTER TABLE `gs_contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -193,10 +221,15 @@ ALTER TABLE `gs_admin_users`
 ALTER TABLE `gs_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `gs_contacts`
+--
+ALTER TABLE `gs_contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `gs_products`
 --
 ALTER TABLE `gs_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `gs_product_analytics`
 --
@@ -206,7 +239,7 @@ ALTER TABLE `gs_product_analytics`
 -- AUTO_INCREMENT for table `gs_product_info`
 --
 ALTER TABLE `gs_product_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
