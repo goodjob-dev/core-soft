@@ -6,6 +6,7 @@
 		</a>
 	</div>
 	<div class="row">
+		<?php if( $products !== FALSE ) : ?> 
 		<div class="table-responsive container">
 			<table class="table table-striped table-bordered">
 				<thead>
@@ -58,5 +59,10 @@
 				</tbody>
 			</table>
 		</div>
+		<?php else : ?>
+		<h1 class="text-center">
+			There is no products to show
+		</h1>
+		<?php endif;?>
 	</div>
 </div>
