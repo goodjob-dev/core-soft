@@ -58,11 +58,6 @@
 
 
 			
-			
-			
-			
-
-
 			if ($this->form_validation->run() == FALSE)
 			{
 				$this->load->model( 'Category' );
@@ -77,25 +72,47 @@
 			else
 			{
 				if($this->input->post('add_product'))
-				{
+				{	
+					// post
 					$post = $this->input->post();
 
+					// upload config
 					$extension = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
 
 					$uploadConfig['upload_path']		= './uploads/products';
 					$uploadConfig['allowed_types']		= 'gif|jpg|jpeg|png';
-					$uploadConfig['file_name']			= md5($_FILES['product_image']['name'] . time() . '.' . $extension);
+					$uploadConfig['file_name']			= md5($_FILES['product_image']['name'] . time()) . '.' . $extension;
 
 					$this->load->library('upload', $uploadConfig);
-					$this->upload->do_upload('product_image');
+					if($this->upload->do_upload('product_image')) {
+						$imageConfig['image_library']	= 'gd2';
+						$imageConfig['source_image']	= './uploads/products/' . $uploadConfig['file_name'];
+						$imageConfig['new_image']		= './uploads/products/thumbs/';
+						$imageConfig['create_thumb']	= TRUE;
+						$imageConfig['thumb_marker']	= NULL;
+						$imageConfig['maintain_ratio']	= TRUE;
+						$imageConfig['width']			= 172;
+						$imageConfig['height']			= 172;
+
+						$this->load->library('image_lib', $imageConfig); 
+
+						$this->image_lib->resize();
+					}
 
 
+					// image
+					
+
+
+					// mysql
 					$sql1 = "INSERT INTO gs_products (`category_id`, `title`, `regular_price`, `sale_price`, `create_date`, `image`) VALUES (?, ?, ?, ?, ?, ?)";
 					$sql2 = "INSERT INTO gs_product_info (`product_id`, `description`) VALUES (LAST_INSERT_ID(), ?)";
+					$sql3 = "INSERT INTO gs_product_analytics (`product_id`) VALUES (LAST_INSERT_ID())";
 
 					$this->db->trans_start();
 						$this->db->query($sql1, array($post['category'],$post['title'], $post['regular_price'], $post['sale_price'], time(), $uploadConfig['file_name']) );
 						$this->db->query($sql2, array($post['description']));
+						$this->db->query($sql3);
 					$this->db->trans_complete();
 
 				}

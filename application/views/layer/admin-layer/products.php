@@ -29,7 +29,7 @@
 							<td><?php echo $id;?></td>
 								
 							<td class="product-image">
-								<img src="/uploads/products/thumbs/product_<?php echo $product->id . '.' . $product->extension;?>" />
+								<img src="/uploads/products/thumbs/<?php echo $product->image;?>" />
 							</td>
 								
 							<td><?php echo $product->title;?></td>
