@@ -140,19 +140,20 @@
 					'rules'		=> 'required'
 				)
 			);
-
 			$this->form_validation->set_rules($config);
+
+
+			$this->load->model( 'Category' );
+			$this->load->model( 'manage/_products' );
+			
+			$categories = $this->Category->getAllCategories();
+			$product = $this->_products->getProductByID($id);
+
+			
 
 			if ($this->form_validation->run() == FALSE)
 			{
-				$this->load->model( 'Category' );
-				$this->load->model( 'manage/_products' );
-
-
-				$categories = $this->Category->getAllCategories();
-				$product = $this->_products->getProductByID($id);
-
-
+				
 				$this->render('edit-product', 
 				[
 					'title'			=> 'Edit product',
@@ -164,8 +165,57 @@
 			{
 				if($this->input->post('edit_product'))
 				{
+					/* post */
 					$post = $this->input->post();
-					$this->request->pr($post);
+
+					/* upload config */
+					if($_FILES['product_image']['name'] == null) {
+						$_productImage = $product->image;
+					} else {
+						$old_image_name = $product->image;
+						@unlink('./uploads/products/' . $old_image_name);
+						@unlink('./uploads/products/thumbs/' . $old_image_name);
+						$extension = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
+
+						$uploadConfig['upload_path']		= './uploads/products';
+						$uploadConfig['allowed_types']		= 'gif|jpg|jpeg|png';
+						$uploadConfig['file_name']			= md5($_FILES['product_image']['name'] . time()) . '.' . $extension;
+
+						$this->load->library('upload', $uploadConfig);
+						if($this->upload->do_upload('product_image')) {
+							/* image config */
+							$imageConfig['image_library']	= 'gd2';
+							$imageConfig['source_image']	= './uploads/products/' . $uploadConfig['file_name'];
+							$imageConfig['new_image']		= './uploads/products/thumbs/';
+							$imageConfig['create_thumb']	= TRUE;
+							$imageConfig['thumb_marker']	= NULL;
+							$imageConfig['maintain_ratio']	= TRUE;
+							$imageConfig['width']			= 172;
+							$imageConfig['height']			= 172;
+
+							$this->load->library('image_lib', $imageConfig); 
+
+							$this->image_lib->resize();
+						}
+
+						$_productImage = $uploadConfig['file_name'];
+					}
+
+					echo $_productImage;
+
+
+					/* mysql */
+
+					$sql1 = "UPDATE gs_products SET `category_id` = ?, `title` = ?, `regular_price` = ?, `sale_price` = ?, `image` =? WHERE `id` = ?";
+					$sql2 = "UPDATE gs_product_info SET `description` = ? WHERE `product_id` = ?";
+
+					$this->db->trans_start();
+						$this->db->query($sql1, array($post['category'], $post['title'], $post['regular_price'], $post['sale_price'], $_productImage, $id));
+						$this->db->query($sql2, array($post['description'], $id));
+					$this->db->trans_complete();
+
+					$this->request->redirectTo(base_url() . "manage/products");
+
 
 				}
 			}
