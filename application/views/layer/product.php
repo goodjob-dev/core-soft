@@ -6,7 +6,7 @@
 			<div class="product-box">
 				<div class="pb-left-column col-xs-12 col-sm-12 col-md-7">
 					<div class="pb-image">
-						<img src="/uploads/products/<?php echo 'product_' . $product->id . '.' . $product->extension; ?>">
+						<img src="/uploads/products/<?php echo $product->image; ?>">
 					</div>
 				</div>
 				<div class="pb-center-column col-xs-12 col-sm-12 col-md-5">
@@ -66,7 +66,7 @@
 					<div class="product col-lg-3 col-md-4 col-sm-10">
 						<div class="top-block">
 							<a href="/product/<?php echo $value->id ?>">
-								<img class="img-responsive" src="/uploads/products/thumbs/<?php echo 'product_' . $value->id . '.' . $value->extension; ?>">
+								<img class="img-responsive" src="/uploads/products/thumbs/<?php echo $value->image ?>">
 							</a>
 						</div>
 						<div class="bottom-block">

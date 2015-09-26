@@ -38,6 +38,7 @@ $route['manage/logout']    = '_DashboardController/logout';
 
 $route['manage/products']     = '_ProductController/index';
 $route['manage/products/add'] = '_ProductController/add';
+$route['manage/products/edit/([0-9]+)'] = '_ProductController/edit/$1';
 
 /**
  * User routes

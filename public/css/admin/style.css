@@ -38,10 +38,7 @@ input, button, textarea
 	position: relative;
 	top: 21px;
 }
-.add-product-layout 
-{
-	margin-top: 50px;
-}
+
 .control-label
 {
 	text-align: left !important;
@@ -53,4 +50,8 @@ input, button, textarea
 .table-responsive.container
 {
 	padding-right: 0px;
+}
+
+.error {
+	color: #e64c65;
 }
