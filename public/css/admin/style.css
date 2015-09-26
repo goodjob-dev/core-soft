@@ -6,10 +6,6 @@ input, button, textarea
 {
 	outline: none !important;
 }
-
-.clear {
-	clear: both;
-}
 .vertical-center 
 {
     min-height: 100%;
@@ -23,10 +19,6 @@ input, button, textarea
 .nav-content 
 {
 	padding: 0;
-}
-.navbar-left li:first-child a, .none-padding
-{
-	padding-left: 0;
 }
 .product-image img 
 {
@@ -46,11 +38,19 @@ input, button, textarea
 	position: relative;
 	top: 21px;
 }
-
-
-
-
-
-.add-product-layout {
+.add-product-layout 
+{
 	margin-top: 50px;
+}
+.control-label
+{
+	text-align: left !important;
+}
+.gshop-logo img
+{
+	height: 60px;
+}
+.table-responsive.container
+{
+	padding-right: 0px;
 }
