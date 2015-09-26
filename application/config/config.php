@@ -520,12 +520,13 @@ $config['assets'] =
 
 	'public' => array(
 		'css' => array(
-			'bootstrap.min',
+			'bootstrap',
 			'jquery-ui',
 			'style'
 		),
 		'js'  => array(
 			'jquery',
+			'bootstrap',
 			'jquery-ui',
 			'script'
 		)
