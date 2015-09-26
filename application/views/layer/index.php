@@ -18,7 +18,7 @@
 					<div class="product col-lg-3 col-md-4 col-sm-10">
 						<div class="top-block">
 							<a href="/product/<?php echo $value->id; ?>">
-								<img class="img-responsive" src="/uploads/products/thumbs/<?php echo 'product_' . $value->id . '.' . $value->extension; ?>">
+								<img class="img-responsive" src="/uploads/products/thumbs/<?php echo $value->image; ?>">
 							</a>
 						</div>
 						<div class="bottom-block">
