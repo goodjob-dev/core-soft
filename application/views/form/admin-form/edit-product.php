@@ -6,7 +6,7 @@
 
 		<div class="add-product-layout col-xs-8">
 				
-
+		<?php if($product): ?>
 			<form method="post" action="" class="form-horizontal" enctype="multipart/form-data">
 
 				
@@ -38,14 +38,14 @@
 				<div class="form-group <?php if(form_error('regular_price')) {echo "has-error";} ?>">
 					<label for="regular_price" class="col-lg-3 control-label">Regular Price *</label>
 					<div class="col-lg-9">
-						<input type="number" name="regular_price" id="regular_price" class="form-control" value="<?php echo $product->regular_price; ?>">
+						<input type="text" name="regular_price" id="regular_price" class="form-control" value="<?php echo $product->regular_price; ?>">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="sale_price" class="col-lg-3 control-label">Sale Price</label>
 					<div class="col-lg-9">
-						<input type="number" name="sale_price" id="sale_price" class="form-control" value="<?php echo $product->sale_price; ?>">
+						<input type="text" name="sale_price" id="sale_price" class="form-control" value="<?php echo $product->sale_price; ?>">
 					</div>
 				</div>
 
@@ -72,11 +72,16 @@
 					</div>
 				</div>
 
-				
-
-				
 			</form>
+		<?php else: ?>
+			<div class="alert alert-dismissible alert-danger">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<strong>There is no product matching give id</strong> <a href="/manage/products" class="alert-link">Browse all products</a>.
+			</div>
+		<?php endif; ?>
 			
+			
+
 		
 		</div>
 

@@ -13,9 +13,10 @@
 					<th>#</th>
 					<th>Image</th>
 					<th>Title</th>
-					<th>Sale price</th>
-					<th>Regular price</th>
+					<th>Price</th>
 					<th>Category</th>
+					<th>Availability</th>
+					<th>Analytics</th>
 					<th>Created</th>
 					<th>Actions</th>
 				</thead>
@@ -35,11 +36,31 @@
 								
 							<td><?php echo $product->title;?></td>
 							
-							<td><?php echo $product->sale_price;?></td>
+							<td>
+								<?php if($product->sale_price == 0): ?>
+									<?php echo $product->regular_price;?>
+								<?php else: ?>
+									<span class="old_price"><?php echo $product->regular_price;?></span><br>
+									<?php echo $product->sale_price;?>
+								<?php endif; ?>
+							</td>
 							
-							<td><?php echo $product->regular_price;?></td>
 							
 							<td><?php echo $product->category_title;?></td>
+
+							<td>
+								<?php if($product->availability == 1): ?>
+									<p><input class="status-change" type="checkbox" data-id="<?php echo $product->id;?>" checked></p>
+								<?php else: ?>
+									<p><input class="status-change" type="checkbox" data-id="<?php echo $product->id;?>" ></p>
+								<?php endif; ?>
+							</td>
+
+							<td>
+								views - <span class="analytics analytics_view"><?php echo $product->view_count;?></span>
+								<hr>
+								sales - <span class="analytics analytics_sales"><?php echo $product->sale_count;?></span>
+							</td>
 							
 							<td><?php echo date( 'Y-m-d', $product->create_date ); ?></td>
 							

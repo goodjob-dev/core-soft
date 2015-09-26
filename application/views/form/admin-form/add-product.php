@@ -33,14 +33,14 @@
 				<div class="form-group <?php if(form_error('regular_price')) {echo "has-error";} ?>">
 					<label for="regular_price" class="col-lg-3 control-label">Regular Price *</label>
 					<div class="col-lg-9">
-						<input type="number" name="regular_price" id="regular_price" class="form-control" value="<?php echo set_value('regular_price'); ?>">
+						<input type="text" name="regular_price" id="regular_price" class="form-control" value="<?php echo set_value('regular_price'); ?>">
 					</div>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group <?php if(form_error('sale_price')) {echo "has-error";} ?>">
 					<label for="sale_price" class="col-lg-3 control-label">Sale Price</label>
 					<div class="col-lg-9">
-						<input type="number" name="sale_price" id="sale_price" class="form-control" value="<?php echo set_value('sale_price'); ?>">
+						<input type="text" name="sale_price" id="sale_price" class="form-control" value="<?php echo set_value('sale_price'); ?>">
 					</div>
 				</div>
 

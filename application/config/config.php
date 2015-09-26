@@ -509,11 +509,15 @@ $config['assets'] =
 	'admin' => array(
 		'css' => array(
 			'admin/bootstrap',
-			'admin/style'
+			'admin/bootstrap-switch.min',
+			'admin/style',
 		),
 		'js'  => array(
 			'jquery',
 			'bootstrap',
+			'admin/bootstrap-switch.min',
+			'admin/highlight',
+			//'admin/main',
 			'admin/script'
 		)
 	),

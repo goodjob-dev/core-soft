@@ -8,9 +8,9 @@ input, button, textarea
 }
 .vertical-center 
 {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
+	min-height: 100%;
+	display: flex;
+	align-items: center;
 }
 .validation-errors
 {
@@ -54,4 +54,17 @@ input, button, textarea
 
 .error {
 	color: #e64c65;
+}
+.old_price{
+	color: #d9534f;
+	text-decoration: line-through;
+}
+
+.analytics {
+	color: #d9534f;
+	text-decoration: underline;
+}
+
+hr {
+	margin-top: 25px;
 }

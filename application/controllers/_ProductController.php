@@ -25,6 +25,7 @@
 			}
 			
 			$this->load->model( 'manage/_products' );
+			
 		
 			$this->render('products', 
 			[
@@ -49,8 +50,13 @@
 				),
 				array(
 					'field'		=> 'regular_price', 
-					'label'		=> 'Regular Price *', 
-					'rules'		=> 'required'
+					'label'		=> 'Regular Price', 
+					'rules'		=> 'required|numeric'
+				),
+				array(
+					'field'		=> 'sale_price', 
+					'label'		=> 'Sale Price', 
+					'rules'		=> 'numeric'
 				)
 			);
 
@@ -149,8 +155,6 @@
 			$categories = $this->Category->getAllCategories();
 			$product = $this->_products->getProductByID($id);
 
-			
-
 			if ($this->form_validation->run() == FALSE)
 			{
 				
@@ -219,6 +223,24 @@
 
 				}
 			}
+		}
+
+		public function on($id) {
+			if($id) {
+				$this->db->set('availability', '1', FALSE);
+				$this->db->where('id', $id);
+				$this->db->update('gs_product_info');
+			}
+			$this->request->redirectTo(base_url() . "manage/products");
+		}
+
+		public function off($id) {
+			if($id) {
+				$this->db->set('availability', '0', FALSE);
+				$this->db->where('id', $id);
+				$this->db->update('gs_product_info');
+			}
+			$this->request->redirectTo(base_url() . "manage/products");
 		}
 
 	}
