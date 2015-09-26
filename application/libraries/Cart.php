@@ -2,9 +2,21 @@
 
 	class Cart 
 	{
+		private $CI;
+		
+		public function __construct()
+		{
+			$this->CI = & get_instance();
+		}
+		
+		public function add( $id, $qty )
+		{
+			
+		}
+		
 		public function get()
 		{
-			return $this->CI->
+			$cart = $this->CI->session->userdata('cart');
 		}
 	}
 ?>
