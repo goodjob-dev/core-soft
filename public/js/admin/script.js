@@ -12,6 +12,13 @@ $(document).ready(function()
 		offColor: 'danger'
 	});
 
+	$('.message_tr').click(function(){
+		var data_message_id = $(this).data('message-id');
+		
+		location.href = '/manage/contacts/view/' + data_message_id;
+
+	});
+
 	function redirect( state, id )
 	{
 		var str  = location.origin;

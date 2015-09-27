@@ -13,6 +13,10 @@
 		[
 			'title' => 'Categories',
 			'route' => 'categories'
+		],
+		[
+			'title' => 'Contacts',
+			'route' => 'contacts'
 		]
 	];
 
@@ -40,6 +44,10 @@
 					<li>
 						<a href="/manage/<?php echo $page['route']?>">
 							<?php echo $page['title'];?>
+							<?php if(strtolower($page['title']) == 'contacts'): ?>
+								<span class="badge">42</span>
+							<?php endif; ?>
+							
 						</a>
 					</li>
 				<?php 

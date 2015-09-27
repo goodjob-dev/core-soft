@@ -51,6 +51,15 @@ $route['manage/categories/add']				= '_CategoryController/add';
 $route['manage/categories/edit/([0-9]+)']	= '_CategoryController/edit/$1';
 $route['manage/categories/delete/([0-9]+)']	= '_CategoryController/delete/$1';
 
+
+/**
+ * contact routes
+*/
+$route['manage/contacts']		= '_ContactController/index';
+$route['manage/contacts/view/([0-9]+)']	= '_ContactController/view/$1';
+
+
+
 /**
  * User routes
 */

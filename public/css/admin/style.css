@@ -68,3 +68,19 @@ input, button, textarea
 hr {
 	margin-top: 25px;
 }
+
+.message-box {
+	padding: 15px;
+}
+
+.message-box p{
+	margin-left: 25px;
+}
+
+.message_tr {
+	cursor: pointer;
+}
+
+.message-text {
+	word-wrap: break-word;
+}
