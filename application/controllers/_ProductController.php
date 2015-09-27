@@ -4,12 +4,13 @@
 		/**
 		 * Product limit for each page
 		*/
-		private $pr_l = 2;
+		private $pr_l = 5;
 		
 		public function __construct()
 		{
 			parent::__construct();
 			$this->load->library('form_validation');
+			$this->load->model( 'manage/_products' );
 		}
 		
 		public function index()
@@ -23,8 +24,6 @@
 				$l = $this->pr_l;
 				$o = $l * $p;
 			}
-			
-			$this->load->model( 'manage/_products' );
 			
 		
 			$this->render('products', 
@@ -61,7 +60,6 @@
 			);
 
 			$this->form_validation->set_rules($config);
-
 
 			
 			if ($this->form_validation->run() == FALSE)
@@ -150,7 +148,7 @@
 
 
 			$this->load->model( 'Category' );
-			$this->load->model( 'manage/_products' );
+			
 			
 			$categories = $this->Category->getAllCategories();
 			$product = $this->_products->getProductByID($id);
@@ -223,6 +221,18 @@
 
 				}
 			}
+		}
+
+		public function delete($id)
+		{
+			if($id)
+			{
+				$product = $this->_products->getProductByID($id);
+				@unlink('./uploads/products/' . $product->image);
+				@unlink('./uploads/products/thumbs/' . $product->image);
+				$this->db->delete('gs_products', array('id' => $id));
+			}
+			$this->request->redirectTo(base_url() . "manage/products");
 		}
 
 		public function on($id) {

@@ -36,11 +36,20 @@ $route['manage/logout']    = '_DashboardController/logout';
  * product routes
 */
 
-$route['manage/products']     = '_ProductController/index';
-$route['manage/products/add'] = '_ProductController/add';
-$route['manage/products/edit/([0-9]+)'] = '_ProductController/edit/$1';
-$route['manage/products/on/([0-9]+)'] = '_ProductController/on/$1';
-$route['manage/products/off/([0-9]+)'] = '_ProductController/off/$1';
+$route['manage/products']					= '_ProductController/index';
+$route['manage/products/add']				= '_ProductController/add';
+$route['manage/products/edit/([0-9]+)']		= '_ProductController/edit/$1';
+$route['manage/products/delete/([0-9]+)']	= '_ProductController/delete/$1';
+$route['manage/products/on/([0-9]+)']		= '_ProductController/on/$1';
+$route['manage/products/off/([0-9]+)']		= '_ProductController/off/$1';
+
+/**
+ * category routes
+*/
+$route['manage/categories']					= '_CategoryController/index';
+$route['manage/categories/add']				= '_CategoryController/add';
+$route['manage/categories/edit/([0-9]+)']	= '_CategoryController/edit/$1';
+$route['manage/categories/delete/([0-9]+)']	= '_CategoryController/delete/$1';
 
 /**
  * User routes
@@ -58,7 +67,7 @@ $route['cart/add/([0-9]+)'] = 'cartcontroller/add/$1';
 
 $route['contact']           = 'contactcontroller/index';
 
-$route['category/([a-z]+)'] = 'categorycontroller/index/$1';
+$route['category/([a-z0-9]+)'] = 'categorycontroller/index/$1';
 
 $route['product/([0-9]+)']  = 'indexcontroller/product/$1';
 

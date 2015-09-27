@@ -12,7 +12,8 @@
 					 ->from  ( 'gs_products' )
 				     ->join  ( 'gs_categories', 'gs_products.category_id = gs_categories.id', 'left' )
 				     ->join  ( 'gs_product_analytics', 'gs_product_analytics.product_id = gs_products.id', 'left' )
-				     ->join  ( 'gs_product_info', 'gs_products.id = gs_product_info.product_id', 'left' );
+				     ->join  ( 'gs_product_info', 'gs_products.id = gs_product_info.product_id', 'left' )
+				     ->order_by('id DESC');
 			
 			if( null != $l )
 			{

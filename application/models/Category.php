@@ -1,6 +1,6 @@
 <?php 
 
-class Category extends CI_Model
+class Category extends Gs_Model
 {
 	public function __construct()
 	{
@@ -12,10 +12,10 @@ class Category extends CI_Model
 	public function getAllCategories() {
 		$query = $this->db->select('*')
 						  ->from('gs_categories')
-						  ->get()
-						  ->result();
+						  ->order_by('id DESC')
+						  ->get();
 
-		return $query;
+		return $this->get($query);
 	}
 
 	public function aliasToId($alias) {
@@ -28,6 +28,15 @@ class Category extends CI_Model
 		}
 		$result = $query->result();
 		return $result[0]->id;
+	}
+
+	public function getCategoryByID($id) {
+		$query = $this->db->select('*')
+						  ->from('gs_categories')
+						  ->where('id', $id)
+						  ->get();
+
+		return $this->one($query);
 	}
 
 }	
